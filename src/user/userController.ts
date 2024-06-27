@@ -1,11 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
-import userModal from "./userModal";
+
 import bcrypt from "bcrypt";
 import { User } from "./userTypes";
 
 import { config } from "../config/config";
 import { sign } from "jsonwebtoken";
+import userModel from "./userModel";
+
+
 
 const createAccount = async (
   req: Request,
@@ -19,7 +22,7 @@ const createAccount = async (
   }
 
   try {
-    const user = await userModal.findOne({ email });
+    const user = await userModel.findOne({ email });
     if (user) {
       const error = createHttpError(400, "User Already exsit!");
       return next(error);
@@ -30,7 +33,7 @@ const createAccount = async (
   const hashedPassword = await bcrypt.hash(password, 10);
   let newUser: User;
   try {
-    newUser = await userModal.create({
+    newUser = await userModel.create({
       name,
       email,
       password: hashedPassword,
@@ -55,7 +58,7 @@ const loginUser = async ( req: Request,res: Response, next: NextFunction) => {
     return next(error);
   }
   try {
-    const user = await userModal.findOne({ email });
+    const user = await userModel.findOne({ email });
     if (!user) {
       return next(createHttpError(404, "user not found"));
     }
