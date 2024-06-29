@@ -4,11 +4,6 @@ import userRouter from './user/userRouter';
 import bookRouter from "./book/bookRouter";
 const app = express();
 app.use(express.json())
-// app.get("/", (req:Request, res:Response, next:NextFunction) => {
-//     const error = createHttpError();
-//     throw error
-  
-// });
 
 
 app.use('/api/users', userRouter)
