@@ -3,22 +3,22 @@ version: 1
 services:
   - type: web
     name: webapp
-    image: docker.io/majedur2377/webapp:27
+    dockerfilePath: ./Dockerfile # Path to your Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: "8000"
       - key: DB_CONNECTION_URL
-        fromEnv: DB_CONNECTION_URL
+        value: mongodb+srv://majed2377:majed2377@cluster0.vvvnn3j.mongodb.net/e-book10?retryWrites=true&w=majority&appName=Cluster0
       - key: JWT_SECRET
-        fromEnv: JWT_SECRET
+        value: ASDFGHJ344hjjj
       - key: CLOUDINARY_NAME
-        fromEnv: CLOUDINARY_NAME
+        value: derf19wfk
       - key: CLOUDINARY_API_KEY
-        fromEnv: CLOUDINARY_API_KEY
+        value: 286638696657847
       - key: CLOUDINARY_SECRECT_KEY
-        fromEnv: CLOUDINARY_SECRECT_KEY
+        value: lEf9BbRFV73lRt6B_WOySyCiAI0
     ports:
       - port: 8000
     autoDeploy: true
