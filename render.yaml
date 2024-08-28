@@ -4,7 +4,7 @@ services:
   - type: web
     name: webapp
     runtime: docker  # Specify the runtime as docker
-    dockerfilePath: ./Dockerfile # Path to your Dockerfile
+    dockerfilePath: ./DockerFile # Path to your Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
