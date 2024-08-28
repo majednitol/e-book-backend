@@ -21,9 +21,5 @@ services:
       - key: CLOUDINARY_SECRECT_KEY
         value: lEf9BbRFV73lRt6B_WOySyCiAI0
     autoDeploy: true
-    scaling:
-      minInstances: 1
-      maxInstances: 3
-      targetCPUPercent: 70 # Required scaling field
-    healthCheckPath: / # Adjust if your application has a specific health check endpoint
-    region: oregon # Optional: choose the closest region to you
+    plan: free  # Explicitly specify the free plan
+    healthCheckPath: /
