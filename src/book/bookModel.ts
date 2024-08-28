@@ -4,7 +4,7 @@ import { Book } from "./bookTypes";
 const bookSchema = new mongoose.Schema<Book>(
   {
     title: {
-      type: String,
+      type: String, 
       required: true,
     },
     author: {

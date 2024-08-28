@@ -42,7 +42,7 @@ const createAccount = async (
     return next(createHttpError(500, "Error while creating user."));
   }
   try {
-    const token = sign({ sub: newUser._id }, config.jwt_secret as string, {
+    const token = sign({ sub: newUser._id ,role:"admin"}, config.jwt_secret as string, {
       expiresIn: "7d",
     });
 

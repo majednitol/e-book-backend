@@ -19,7 +19,7 @@ const authenticate = async (
     const parsedToken = token.split(" ")[1];
     const decoded = verify(parsedToken, config.jwt_secret as string);
     const _req = req as AuthRequest;
-    _req.userId = decoded.sub as string;
+    _req.userId = decoded as string;
     next();
   } catch (error) {
     return next(createHttpError(401, "Token expired."));

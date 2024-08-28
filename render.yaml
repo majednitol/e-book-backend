@@ -1,0 +1,27 @@
+services:
+  - name: webapp
+    type: web
+    env: docker
+    plan: free
+    docker:
+      image: docker.io/majedur2377/webapp:27
+    buildCommand: "npm install --force" # Optional, only if you have a custom build step
+    startCommand: "npm run dev" # Adjust this if your image already has a start command
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8000"
+      - key: DB_CONNECTION_URL
+        fromEnv: DB_CONNECTION_URL
+      - key: JWT_SECRET
+        fromEnv: JWT_SECRET
+      - key: CLOUDINARY_NAME
+        fromEnv: CLOUDINARY_NAME
+      - key: CLOUDINARY_API_KEY
+        fromEnv: CLOUDINARY_API_KEY
+      - key: CLOUDINARY_SECRECT_KEY
+        fromEnv: CLOUDINARY_SECRECT_KEY
+    ports:
+      - name: http
+        port: 8000
