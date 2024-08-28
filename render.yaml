@@ -1,12 +1,11 @@
+version: 1.0
+
 services:
-  - name: webapp
-    type: web
-    env: docker
-    plan: free
+  - type: web
+    name: webapp
     docker:
       image: docker.io/majedur2377/webapp:27
-    buildCommand: "npm install --force" # Optional, only if you have a custom build step
-    startCommand: "npm run dev" # Adjust this if your image already has a start command
+      # You don't need to specify build-related configurations here since you're using a pre-built image
     envVars:
       - key: NODE_ENV
         value: production
@@ -23,5 +22,10 @@ services:
       - key: CLOUDINARY_SECRECT_KEY
         fromEnv: CLOUDINARY_SECRECT_KEY
     ports:
-      - name: http
-        port: 8000
+      - port: 8000
+    autoDeploy: true
+    scaling:
+      minInstances: 1
+      maxInstances: 3
+    healthCheckPath: / # Adjust if your application has a specific health check endpoint
+    region: oregon # Optional: choose the closest region to you
