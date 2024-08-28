@@ -8,8 +8,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: "8000"
       - key: DB_CONNECTION_URL
         value: mongodb+srv://majed2377:majed2377@cluster0.vvvnn3j.mongodb.net/e-book10?retryWrites=true&w=majority&appName=Cluster0
       - key: JWT_SECRET
