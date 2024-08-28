@@ -3,6 +3,7 @@ version: 1
 services:
   - type: web
     name: webapp
+    runtime: docker  # Specify the runtime as docker
     dockerfilePath: ./Dockerfile # Path to your Dockerfile
     envVars:
       - key: NODE_ENV
@@ -23,5 +24,6 @@ services:
     scaling:
       minInstances: 1
       maxInstances: 3
+      targetCPUPercent: 70 # Required scaling field
     healthCheckPath: / # Adjust if your application has a specific health check endpoint
     region: oregon # Optional: choose the closest region to you
