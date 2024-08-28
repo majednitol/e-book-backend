@@ -1,11 +1,9 @@
-version: 1.0
+version: 1
 
 services:
   - type: web
     name: webapp
-    docker:
-      image: docker.io/majedur2377/webapp:27
-      # You don't need to specify build-related configurations here since you're using a pre-built image
+    image: docker.io/majedur2377/webapp:27
     envVars:
       - key: NODE_ENV
         value: production
