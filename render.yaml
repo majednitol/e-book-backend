@@ -19,8 +19,6 @@ services:
         value: 286638696657847
       - key: CLOUDINARY_SECRECT_KEY
         value: lEf9BbRFV73lRt6B_WOySyCiAI0
-    ports:
-      - port: 8000
     autoDeploy: true
     scaling:
       minInstances: 1
